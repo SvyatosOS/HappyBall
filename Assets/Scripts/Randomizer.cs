@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class Randomizer 
 {
-    public void ChangeColor(Material materials)
-    {
-        materials.color = Random.ColorHSV();
-    }
+    public Color ChangeColor() =>  Random.ColorHSV();
+    
 
     public Vector3 RandomPosition(Vector3 size)
     {

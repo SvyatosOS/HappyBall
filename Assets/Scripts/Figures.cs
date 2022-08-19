@@ -2,18 +2,20 @@ using UnityEngine;
 
 public abstract class Figures : MonoBehaviour
 {
-    private int offset = 2;
-    Randomizer newColor = new Randomizer();
-    protected virtual void Move()
+    private Material targetMaterial;
+     
+    private void Awake()
     {
-        transform.position = ToWorldSpace(new Vector3(Input.mousePosition.x, Input.mousePosition.y,Camera.main.transform.position.y-offset));
+        targetMaterial = GetComponent<MeshRenderer>().material;
+    }
+    public virtual void Move(Vector3 direction)
+    {
+        transform.position = direction;
     }
    
-    private Vector3 ToWorldSpace(Vector3 screenSpace) => Camera.main.ScreenToWorldPoint(screenSpace);
-
-    protected virtual void SetColor(Material ballMaterial)
+    public virtual void SetColor(Color color)
     {
-        newColor.ChangeColor(ballMaterial);
+            targetMaterial.color = color;
     }
     
 }

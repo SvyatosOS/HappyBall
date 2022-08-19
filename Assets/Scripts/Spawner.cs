@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int countBall;
     Randomizer randomizer = new Randomizer();
 
-    private void Start()
+    private void Awake()
     {
         Spawn();
     }
